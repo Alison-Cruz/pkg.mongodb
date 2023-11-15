@@ -1,16 +1,19 @@
 name: "Deploy to Nuget"
 on:
   push:
-    tags:
-      - "v*"
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+    
 env:
   PROJECT_PATH: "src/Core/Core.csproj"
   PACKAGE_OUTPUT_DIRECTORY: '${{ github.workspace }}\output'
   NUGET_SOURCE_URL: "https://api.nuget.org/v3/index.json"
+
 jobs:
   deploy:
     name: "Deploy"
-    runs-on: "ubuntu-latest"
+    runs-on: "windows-latest"
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
@@ -18,14 +21,19 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: "8.0.x"
+
       - name: "Restore Packages"
         run: dotnet restore ${{ env.PROJECT_PATH }}
+
       - name: "Build Project"
         run: dotnet build ${{ env.PROJECT_PATH }} --no-restore --configuration Release
+
       - name: "Pack Project"
         run: dotnet pack ${{ env.PROJECT_PATH }} --no-restore --no-build  --configuration Release --include-symbols -p:PackageVersion=${{ steps.version.outputs.version-without-v }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+        
       - name: "Get Version"
         uses: battila7/get-version-action@v2
         id: version
+
       - name: "Push Package"
         run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}*.nupkg -k ${{ secrets.NUGET_KEY }} -s ${{ env. NUGET_SOURCE_URL}}

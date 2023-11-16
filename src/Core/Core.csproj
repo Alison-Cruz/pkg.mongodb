@@ -4,7 +4,28 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Pkg.MongoDb.Core</PackageId>
+    <Title>Pkg.MongoDb.Core</Title>
+    <Authors>Alison-Cruz</Authors>
+    <Product>Pkg.Mongo.Db</Product>
+    <Description>This package have is able to simplify mongodb driver, using repository patter to do this.</Description>
+    <PackageProjectUrl>https://github.com/Alison-Cruz/pkg.mongodb</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Alison-Cruz/pkg.mongodb</RepositoryUrl>
+    <PackageIcon>package-img.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\.img\package-img.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MongoDB.Bson" Version="2.22.0" />

@@ -21,6 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\nuget.yml = .github\workflows\nuget.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".img", ".img", "{430B1116-3E39-4067-B790-3004E1B3F02F}"
+	ProjectSection(SolutionItems) = preProject
+		.img\package-img.png = .img\package-img.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +44,7 @@ Global
 		{24512235-B25F-4D0E-9A3D-11D187E58DD5} = {E07F4E5B-A8F4-4D7B-A2E4-1C5961C4B1B3}
 		{4709FAD6-D76F-4BEB-A6DF-167B1E3D045F} = {270E83BF-C802-41A5-95B2-ADCFD64E52D5}
 		{4E7EB9A4-2B78-4CFC-8AAF-2C9F30F7887C} = {4709FAD6-D76F-4BEB-A6DF-167B1E3D045F}
+		{430B1116-3E39-4067-B790-3004E1B3F02F} = {270E83BF-C802-41A5-95B2-ADCFD64E52D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E78781B-85F4-45B8-BDEA-8EC0DFCFEABB}
